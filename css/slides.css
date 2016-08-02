@@ -1,0 +1,62 @@
+#slider {
+    width: 720px;
+    height: 540px;
+    overflow: hidden;
+}
+
+#slider .slides {
+    display: block;
+    width: 6000px;
+    height: 400px;
+    margin: 0;
+    padding: 0;
+}
+
+#slider .slide {
+    float: left;
+    list-style-type: none;
+    width: 720px;
+    height: 540px;
+}
+.indicator {
+  width: 720px;
+  background: #ffdb4d;
+}
+.strip {
+  height: 4px;
+  background: #ff0000;
+  width: 0;
+}
+.slider-controls {
+  background: #474747;
+}
+.slider-controls img{
+  height: 20px;
+  width: auto;
+  color: #fff;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.slider-controls img:hover{
+cursor: pointer;
+}
+.slider-controls p {
+  text-align: center;
+  line-height: 1.5;
+  padding-top:10px;
+}
+
+.slider-count {
+  display: inline-block;
+  font-size: 1em;
+  color: #fff;
+  line-height: 3;
+
+}
+
+/* helper css, since we don't have images */
+.slide1 {background: gray;}
+.slide2 {background: blue;}
+.slide3 {background: green;}
+.slide4 {background: purple;}
+.slide5 {background: pink;}
