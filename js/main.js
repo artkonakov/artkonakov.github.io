@@ -3,6 +3,10 @@
 
 $(function() {
 
+  $.fn.sliderjs = function() {
+
+    return this.each(function() {
+
     //Настройки
     var width = 720;
     var animationSpeed = 500;
@@ -10,13 +14,14 @@ $(function() {
 
 
     //Определяем элементы DOM
-    var $slider = $('#slider');
+    var $slider = $(this);
     var $slideContainer = $('.slides', $slider);
     var $slides = $('.slide', $slider);
-    var $controlRight = $('.right');
-    var $controlLeft = $('.left');
-    var $sliderCount = $('.slider-count');
-    var $indicator = $('.strip');
+    var $controlRight = $('.right', $slider);
+    var $controlLeft = $('.left', $slider);
+    var $sliderCount = $('.slider-count',$slider);
+    var $strip = $('.strip', $slider);
+    var $indicator = $('.indicator', $slider);
 
     //Вычисляем ширину одной полоски для отображения под слайдом
     var divider = width / $slides.length;
@@ -25,30 +30,37 @@ $(function() {
     $slideContainer.css( {'width': width * $slides.length});
     $slider.css( {'width': width});
     $slides.css( {'width': width});
-    $('.indicator').css( {'width': width});
+    $indicator.css( {'width': width});
+
+    //Создаем области по краям для переключения слайдов
+    $slider.append("<div class='right-control-field'> </div>");
+    var $rightControlField = $('.right-control-field', $slider);
+
+    $slider.append("<div class='left-control-field'> </div>");
+    var $leftControlField = $('.left-control-field', $slider);
 
     //Функция для отображения счетчика слайдов
     function updateCount() {
 
-        $sliderCount.html( currentSlide + " из " + $slides.length);
+        $sliderCount.html( "<label>" + currentSlide + " из " + $slides.length + "</label>");
 
     }
 
     updateCount() ;
 
-    $indicator.css( {'width': divider});
+    $strip.css( {'width': divider * currentSlide});
 
     //Функции для изменения размера индикатора в зависимсоти от положения слайда
     function indicatorPlus() {
 
       divider = width / $slides.length;
-      $indicator.animate({
+      $strip.animate({
         'width': '+=' + divider }, animationSpeed);
       }
 
     function indicatorMinus() {
       divider = width / $slides.length;
-      $indicator.animate({
+      $strip.animate({
         'width': '-=' + divider }, animationSpeed);
     }
 
@@ -63,6 +75,7 @@ $(function() {
         indicatorPlus();
         }
       }
+
     // функция для движения слайда назад и анимации
     function backward() {
 
@@ -78,8 +91,21 @@ $(function() {
     }
 
     //Элементы управления
-    $controlRight.on('click', forward);
 
+    $controlRight.on('click', forward);
     $controlLeft.on('click', backward);
 
+    $rightControlField.on('click', forward);
+    $leftControlField.on('click', backward);
+
+
+
+});
+}
+});
+
+//Вызываем функцию по селектору для каждого слайдера на странице
+$(document).ready(function() {
+    $('.slider').sliderjs();
+    $('.slider2').sliderjs();
 });

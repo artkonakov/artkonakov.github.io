@@ -79,7 +79,7 @@ article {
 .slider-description h3{
   font-size: 1.4em;
   margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.1em;
 }
 .slider-description p{
   margin: 0;
@@ -137,7 +137,9 @@ footer p {
     color: #a4a4a4;
     text-align: right;
 }
-
+.slider-wraper {
+	margin-bottom: 40px;
+}
 * {
 	padding: 0;
 	margin: 0;

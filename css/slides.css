@@ -1,15 +1,18 @@
 #slider {
     width: 720px;
-    height: 540px;
+    height: auto;
     overflow: hidden;
+    border: 1px solid #474747;
+    position: relative;
 }
 
 #slider .slides {
     display: block;
     width: 6000px;
-    height: 400px;
+    height: 540px;
     margin: 0;
     padding: 0;
+
 }
 
 #slider .slide {
@@ -18,12 +21,13 @@
     width: 720px;
     height: 540px;
 }
+
 .indicator {
   width: 720px;
   background: #ffdb4d;
 }
 .strip {
-  height: 4px;
+  height: 6px;
   background: #ff0000;
   width: 0;
 }
@@ -31,32 +35,65 @@
   background: #474747;
 }
 .slider-controls img{
-  height: 20px;
+  height: 14px;
   width: auto;
   color: #fff;
+  float: left;
   margin-left: 10px;
   margin-right: 10px;
+
 }
 .slider-controls img:hover{
 cursor: pointer;
 }
+.slider-controls div{
+  display: inline-block;
+}
 .slider-controls p {
-  text-align: center;
-  line-height: 1.5;
-  padding-top:10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+text-align: center;
+}
+.slider-count {
+  display: inline-block;
+}
+.arrows span {
+  display: inline-block;
 }
 
-.slider-count {
+.slider-count label{
+  text-align: center;
   display: inline-block;
   font-size: 1em;
   color: #fff;
-  line-height: 3;
-
+  line-height: 1;
+  margin-bottom: 0px;
+  vertical-align:text-top;
 }
-
-/* helper css, since we don't have images */
-.slide1 {background: gray;}
-.slide2 {background: blue;}
-.slide3 {background: green;}
-.slide4 {background: purple;}
-.slide5 {background: pink;}
+.right-control-field {
+  position: absolute;
+  width: 150px;
+  height: 540px;
+  right: 0px;
+  top: 0px;
+}
+.right-control-field:hover {
+  cursor: pointer;
+}
+.left-control-field {
+  position: absolute;
+  width: 150px;
+  height: 540px;
+  left: 0px;
+  top: 0px;
+}
+.left-control-field:hover {
+    cursor: pointer;
+}
+.image-thumb {
+  position: absolute;
+  width: 200px;
+  height: auto;
+  bottom: 100px;
+  left: 260px;
+}
